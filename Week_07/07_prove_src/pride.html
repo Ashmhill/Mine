@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Pride and Prejudice Quote Challenge</title>
+</head>
+<body>
+    <h1>Pride and Prejudice Quotes</h1>
+    <ul>
+        <li>Quote list unavailable</li>
+    </ul>
+    <button id="loadQuotes">Load Quotes</button>
+    <script>
+        document.getElementById('loadQuotes').addEventListener('click', getQuotes)
+        function getQuotes() {
+            //1. Use the fetch() API to load quotes.json (make sure this file is in the same folder as your HTML).
+                // Fetch quotes.json using fetch()
+            fetch('js/quotes.json')
+                .then(function(response){
+            //2. Parse the response into data you can use (i.e., call .json() on the response).
+                // Parse the response into data you can use
+                    return response.json()
+            })
+                .then(function(data) {
+            //3. Find the array of quotes for “Pride and Prejudice” inside the data.
+                // Loop through each book in data.books
+                    data.books.forEach(function(book) {
+                        if (book.title === "Pride and Prejudice") {
+            //4. Replace the contents of your <ul> with a new list of <li> elements—one for each quote.
+                // 1. Get the ul element
+                var list = document.querySelector('ul'); // or use getElementById if using an id
+                //2. Clear any old list items
+                list.innerHTML = "";
+                //3. For each quote, make a new li and add it to the ul
+                book.quotes.forEach(function(quote){
+                    // Create a new li
+                    var li = document.createElement('li');
+                    // Sets its text to the quote
+                    li.textContent = quote;
+                    // Add the li to the ul
+                    list.appendChild(li);
+                });
+            //5. Save the quotes to localStorage under the key "pride-prejudice".
+                localStorage.setItem("pride-prejudice", JSON.stringify(book.quotes));
+            //6. Hide the “Load Quotes” button so users can’t fetch again.
+                var storedQuotes = localStorage.getItem("pride-prejudice");
+                if (storedQuotes) {
+                    var quotes = JSON.parse(storedQuotes);
+                    var list = document.querySelector('ul');
+                    list.innerHTML = "";
+                    quotes.forEach(function(quote) {
+                        var li = document.createElement('li');
+                        li.textContent = quote;
+                        list.appendChild(li);
+                    });
+                    document.getElementById('loadQuotes').style.display = "none";
+                }
+            }
+        });
+    });
+}
+    </script>
+</body>
+</html>
