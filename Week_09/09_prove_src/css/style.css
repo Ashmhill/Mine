@@ -1,0 +1,156 @@
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background:rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#overlay-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.15);
+    max-width: 400px;
+    width: 100%;
+}
+
+#signup-email {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+#signup-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: #0253b3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#description {
+    max-width: 600px;
+    margin: 2rem auto;
+    background:#fafbfc;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    padding: 2rem;
+}
+
+#description h2 {
+    font-size: 2rem;
+    color: #0253b3;
+}
+
+#description p {
+    font-size: 1.1rem;
+}
+
+#description img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem 0;
+}
+
+nav {
+    background: #0253b3;
+    padding: 1rem 2rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+body {
+    background:#f8fafc;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-top: 2rem;	
+    text-align: center;
+    color:#212c4e;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    color: #0253b3;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    transition: color 0.2s;
+}
+
+ul#products {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    list-style: none;
+}
+
+#products a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 1.25rem;
+    color: #0253b3;
+    text-decoration: none;
+}
+
+#products a:hover {
+    color: #0170fe;
+    text-decoration: underline;
+}
+
+#products a:focus {
+    outline: 2px solid #0170fe;
+}
+
+#products a:active {
+    color: #013567;
+}
+
+@media (max-width: 650px) {
+    ul#products {
+        padding: 1rem;
+    }
+    #description {
+        padding: 1rem;
+    }
+}
